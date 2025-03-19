@@ -1,0 +1,3 @@
+C:/Users/360n0/Desktop/SEM2/SDA/Labs/Lab1_SortedBag/cmake-build-debug/CMakeFiles/Lab1_SortedBag.dir
+C:/Users/360n0/Desktop/SEM2/SDA/Labs/Lab1_SortedBag/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/360n0/Desktop/SEM2/SDA/Labs/Lab1_SortedBag/cmake-build-debug/CMakeFiles/rebuild_cache.dir

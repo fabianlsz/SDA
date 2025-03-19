@@ -13,7 +13,11 @@ class SortedBag {
 	friend class SortedBagIterator;
 
 private:
-	//TODO - Representation
+	int length;
+	int capacity;
+	Relation relation;
+	TComp *dynamicArray;
+
 
 public:
 	//constructor
