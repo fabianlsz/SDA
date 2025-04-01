@@ -1,11 +1,7 @@
 # ninja log v6
-96	811	7652016536490199	CMakeFiles/Lab1_SortedBag.dir/ExtendedTest.cpp.obj	74668f27e448304b
-103	321	7652016536551860	CMakeFiles/Lab1_SortedBag.dir/ShortTest.cpp.obj	3be0f161ce5ed19b
-118	324	7652016536703224	CMakeFiles/Lab1_SortedBag.dir/SortedBagIterator.cpp.obj	759d7386783636a3
-111	320	7652016536623221	CMakeFiles/Lab1_SortedBag.dir/SortedBag.cpp.obj	b4005054b22a6f6a
-87	719	7652016536397412	CMakeFiles/Lab1_SortedBag.dir/App.cpp.obj	b9b11dae1faf3534
-17	364	7652016679757112	build.ninja	540b9ab8d9e0c9c4
-811	1327	7652016543631478	Lab1_SortedBag.exe	5cb2d0dac3f9ae23
-38	1164	7652016679757112	build.ninja	540b9ab8d9e0c9c4
-10	648	7652016787547290	CMakeFiles/Lab1_SortedBag.dir/App.cpp.obj	b9b11dae1faf3534
-649	807	7652016793941959	Lab1_SortedBag.exe	a199daee8eae00b8
+23	222	7635817299673504	CMakeFiles/Lab1_SortedBag.dir/ShortTest.cpp.obj	3be0f161ce5ed19b
+42	225	7635817299860223	CMakeFiles/Lab1_SortedBag.dir/SortedBagIterator.cpp.obj	759d7386783636a3
+32	226	7635817299758779	CMakeFiles/Lab1_SortedBag.dir/SortedBag.cpp.obj	b4005054b22a6f6a
+6	581	7635817299498864	CMakeFiles/Lab1_SortedBag.dir/App.cpp.obj	b9b11dae1faf3534
+15	688	7635817299591294	CMakeFiles/Lab1_SortedBag.dir/ExtendedTest.cpp.obj	74668f27e448304b
+688	875	7635817306323187	Lab1_SortedBag.exe	5cb2d0dac3f9ae23

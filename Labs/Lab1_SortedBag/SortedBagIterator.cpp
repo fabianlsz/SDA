@@ -5,28 +5,24 @@
 using namespace std;
 
 SortedBagIterator::SortedBagIterator(const SortedBag& b) : bag(b) {
-	this->first();
+	//TODO - Implementation
 }
 
 TComp SortedBagIterator::getCurrent() {
-	if (!this->valid()) {
-		throw exception();
-	}
-	return this->bag.dynamicArray[this->currentIndex];
+	//TODO - Implementation
+	return NULL_TCOMP;
 }
 
 bool SortedBagIterator::valid() {
-	return this->currentIndex < this->bag.length;
+	//TODO - Implementation
+	return false;
 }
 
 void SortedBagIterator::next() {
-	if (!this->valid()) {
-		throw exception();
-	}
-	this->currentIndex++;
+	//TODO - Implementation
 }
 
 void SortedBagIterator::first() {
-	this->currentIndex = 0;
+	//TODO - Implementation
 }
 
