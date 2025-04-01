@@ -3,14 +3,14 @@
 
 class SortedBag;
 
-class SortedBagIterator
-{
+class SortedBagIterator {
 	friend class SortedBag;
 
 private:
 	const SortedBag& bag;
-	SortedBagIterator(const SortedBag& b);
 	int currentIndex;
+
+	SortedBagIterator(const SortedBag& b);
 
 public:
 	TComp getCurrent();
@@ -18,4 +18,3 @@ public:
 	void next();
 	void first();
 };
-
