@@ -18,6 +18,8 @@ private:
 	Relation relation;
 	TComp *dynamicArray;
 
+	void resize();
+
 
 public:
 	//constructor
@@ -27,7 +29,7 @@ public:
 	void add(TComp e);
 
 	//removes one occurence of an element from a sorted bag
-	//returns true if an eleent was removed, false otherwise (if e was not part of the sorted bag)
+	//returns true if an element was removed, false otherwise (if e was not part of the sorted bag)
 	bool remove(TComp e);
 
 	//checks if an element appearch is the sorted bag
