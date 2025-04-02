@@ -15,15 +15,27 @@ void testAll() {
 	sb.add(5);
 	sb.add(10);
 	sb.add(8);
+	sb.add(8);
+	sb.add(8);
+	sb.add(8);
+	sb.add(8);
+	sb.add(8);
+	sb.add(8);
+	sb.add(8);
 
-	assert(sb.size() == 6);
+	assert(sb.size() == 13);
 	assert(sb.nrOccurrences(5) == 2);
 
 	assert(sb.remove(5) == true);
-	assert(sb.size() == 5);
+	assert(sb.size() == 12);
 
 	assert(sb.search(6) == true);
 	assert(sb.isEmpty() == false);
+
+	sb.removeAllOccurrences(8);
+	assert(sb.search(8) == false);
+	assert(sb.nrOccurrences(8) == 0);
+	assert(sb.size() == 4);
 
 	SortedBagIterator it = sb.iterator();
 	assert(it.valid() == true);

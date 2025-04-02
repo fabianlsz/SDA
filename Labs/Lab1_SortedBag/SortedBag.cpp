@@ -87,7 +87,6 @@ int SortedBag::nrOccurrences(TComp elem) const {
     return c;
 }
 
-
 ///bc = wc = avg = theta(1)
 int SortedBag::size() const {
     return this->length;
@@ -106,4 +105,23 @@ SortedBagIterator SortedBag::iterator() const {
 ///bc = wc = avg = theta(n)
 SortedBag::~SortedBag() {
     delete[] this->dynamicArray;
+}
+
+//stergi toate aparitiile unui elem pe reprezentare nu pe operatiile in interfata
+///bc - theta(n) daca nu exista elementul e in array se face o singura parcurgee fara mutari
+///wc - theta(n^2) daca toate cele n elemente = e, atunci fiecare stergere inseamna o mutare a tuturor elem ramase
+///avg - daca elementul e apare de t ori, se muta ~n/2 elem -> t x O(n) = O(tn)
+///avg continuare - daca t = O(n) avem O(n^2), daca t e mic avem O(n)
+void SortedBag::removeAllOccurrences(TComp e) {
+    int i = 0;
+    while (i<this->length) {
+        if (this->dynamicArray[i] == e) {
+            for (int j = i;j<this->length-1; j++ ) {
+                this->dynamicArray[j] = this->dynamicArray[j + 1];
+            }
+            this->length--;
+        }
+        else
+            i++;
+    }
 }

@@ -48,4 +48,7 @@ public:
 
 	//destructor
 	~SortedBag();
+
+	//removes all occurrences of an element in the bag without using any of the existing functions
+	void removeAllOccurrences(TComp e);
 };
