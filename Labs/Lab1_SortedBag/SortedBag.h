@@ -17,8 +17,9 @@ private:
 	int capacity;
 	Relation relation;
 	TComp *dynamicArray;
+	static const int initialCapacity;
 
-	void resize();
+	void resize(bool increase);
 
 public:
 	//constructor
@@ -49,6 +50,6 @@ public:
 	//destructor
 	~SortedBag();
 
-	//removes all occurrences of an element in the bag without using any of the existing functions
+	//sterge toate aparitiile unui element din reprezentare, fara a se folosi de fc existente
 	void removeAllOccurrences(TComp e);
 };

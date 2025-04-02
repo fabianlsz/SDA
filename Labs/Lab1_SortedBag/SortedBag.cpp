@@ -1,31 +1,44 @@
 #include "SortedBag.h"
 #include "SortedBagIterator.h"
-//best case Theta(n), wc - Theta(n), avg - Theta(n)
-void SortedBag::resize() {
-    this->capacity *= 2;
-    TComp* newElements = new TComp[this->capacity];
 
+const int SortedBag::initialCapacity = 10;
+
+///best case = worst case = avg case = theta(1) amortizat
+void SortedBag::resize(bool increase) {
+    int newCapacity;
+
+    if (increase) {
+        newCapacity = this->capacity * 2;
+    } else if (this->length <= this->capacity / 4 && this->capacity > initialCapacity) {
+        newCapacity = this->capacity / 2;
+    } else {
+        return;
+    }
+
+    TComp* newElements = new TComp[newCapacity];
     for (int i = 0; i < this->length; i++) {
         newElements[i] = this->dynamicArray[i];
     }
 
     delete[] this->dynamicArray;
     this->dynamicArray = newElements;
+    this->capacity = newCapacity;
 }
 
 SortedBag::SortedBag(Relation r) {
-    this->capacity = 10;
+    this->capacity = initialCapacity;
     this->length = 0;
     this->dynamicArray = new TComp[this->capacity];
     this->relation = r;
 }
+
 ///bc - Theta(1) adauga la sfarsit fara mutari
 ///wc - theta(n) daca il pune la inceput
 ///avg - O(n)
 void SortedBag::add(TComp e) {
     // daca lungimea bag-ului = capacitatea trebuie sa incrementam lungimea vectorului
     if (this->length == this->capacity) {
-        resize();
+        resize(true);
     }
 
     int pos = 0;
@@ -44,7 +57,6 @@ void SortedBag::add(TComp e) {
 ///bc - O(1) daca e primul elem
 ///wc theta(n) daca e ultimul eleme
 ///avg O(n)
-
 bool SortedBag::remove(TComp e) {
     for (int i = 0; i < this->length; i++) {
         if (this->dynamicArray[i] == e) {
@@ -55,6 +67,11 @@ bool SortedBag::remove(TComp e) {
             }
             this->length--;
             // decrementam lungimea cu 1
+
+            if (this->length < this->capacity / 4) {
+                resize(false);
+            }
+
             return true;
             // daca a fost gasit elementul va fi returnam true, daca nu false
         }
@@ -63,7 +80,7 @@ bool SortedBag::remove(TComp e) {
 }
 
 ///bc - Theta(1) daca e primul elem
-///wc theta(n) daca nu ex elem sau e ultimukl
+///wc theta(n) daca nu ex elem sau e ultimul
 ///avg O(n)
 bool SortedBag::search(TComp elem) const {
     for (int i = 0; i < this->length; i++) {
@@ -114,14 +131,18 @@ SortedBag::~SortedBag() {
 ///avg continuare - daca t = O(n) avem O(n^2), daca t e mic avem O(n)
 void SortedBag::removeAllOccurrences(TComp e) {
     int i = 0;
-    while (i<this->length) {
+    while (i < this->length) {
         if (this->dynamicArray[i] == e) {
-            for (int j = i;j<this->length-1; j++ ) {
+            for (int j = i; j < this->length - 1; j++) {
                 this->dynamicArray[j] = this->dynamicArray[j + 1];
             }
             this->length--;
-        }
-        else
+
+            if (this->length < this->capacity / 4) {
+                resize(false);
+            }
+        } else {
             i++;
+        }
     }
 }
