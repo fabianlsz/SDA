@@ -4,10 +4,12 @@
 
 using namespace std;
 
+//////bc = wc = avg = theta(1)
 SortedBagIterator::SortedBagIterator(const SortedBag& b) : bag(b) {
 	this->first();
 }
 
+///bc = wc = avg = theta(1)
 TComp SortedBagIterator::getCurrent() {
 	if (!this->valid()) {
 		throw exception();
@@ -15,10 +17,12 @@ TComp SortedBagIterator::getCurrent() {
 	return this->bag.dynamicArray[this->currentIndex];
 }
 
+///bc = wc = avg = theta(1)
 bool SortedBagIterator::valid() {
 	return this->currentIndex < this->bag.length;
 }
 
+///bc = wc = avg = theta(1)
 void SortedBagIterator::next() {
 	if (!this->valid()) {
 		throw exception();
@@ -26,6 +30,7 @@ void SortedBagIterator::next() {
 	this->currentIndex++;
 }
 
+///bc = wc = avg = theta(1)
 void SortedBagIterator::first() {
 	this->currentIndex = 0;
 }
