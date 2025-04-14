@@ -9,7 +9,9 @@ class MultiMapIterator
 
 private:
 	const MultiMap& col;
-	//TODO - Representation
+
+	KeyNode* currentKey;
+	ValueNode* currentValue;
 
 	MultiMapIterator(const MultiMap& c);
 

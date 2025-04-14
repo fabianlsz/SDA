@@ -1,24 +1,45 @@
 #pragma once
-#include<vector>
-#include<utility>
-//DO NOT INCLUDE MultiMapIterator
+#pragma once
+#include <vector>
+#include <utility>
+// DO NOT INCLUDE MultiMapIterator
 
 using namespace std;
 
-//DO NOT CHANGE THIS PART
+// DO NOT CHANGE THIS PART
 typedef int TKey;
 typedef int TValue;
 typedef std::pair<TKey, TValue> TElem;
 #define NULL_TVALUE -111111
-#define NULL_TELEM pair<int,int>(-111111, -111111)
+#define NULL_TELEM pair<int, int>(-111111, -111111)
 class MultiMapIterator;
 
+struct ValueNode {
+	TValue value;
+	ValueNode* next = nullptr;
+	ValueNode* prev = nullptr;
+
+	ValueNode(TValue v) : value(v) {}
+};
+
+struct KeyNode {
+	TKey key;
+	ValueNode* valuesHead = nullptr;
+	ValueNode* valuesTail = nullptr;
+	KeyNode* next = nullptr;
+	KeyNode* prev = nullptr;
+
+	KeyNode(TKey k) : key(k) {}
+};
 class MultiMap
 {
 	friend class MultiMapIterator;
 
 private:
-	//TODO - Representation
+	KeyNode* head;
+	KeyNode* tail;
+	int totalElems;
+
 
 public:
 	//constructor
