@@ -5,6 +5,8 @@
 #include <vector>
 #include<iostream>
 
+using namespace std;
+
 void testAll() {
 	MultiMap m;
 	m.add(1, 100);

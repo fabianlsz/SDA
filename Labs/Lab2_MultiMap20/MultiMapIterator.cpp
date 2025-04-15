@@ -1,26 +1,39 @@
 #include "MultiMapIterator.h"
 #include "MultiMap.h"
+#include <exception>
 
+using namespace std;
 
-MultiMapIterator::MultiMapIterator(const MultiMap& c): col(c) {
-	//TODO - Implementation
+// Constructor
+MultiMapIterator::MultiMapIterator(const MultiMap& c) : col(c) {
+	currentKeyNode = col.head;
+	currentValueNode = currentKeyNode ? currentKeyNode->valueHead : nullptr;
 }
 
-TElem MultiMapIterator::getCurrent() const{
-	//TODO - Implementation
-	return NULL_TELEM;
+// Get the current key-value pair
+TElem MultiMapIterator::getCurrent() const {
+	if (!valid()) throw exception();
+	return {currentKeyNode->key, currentValueNode->value};
 }
 
+// Check if the iterator is valid
 bool MultiMapIterator::valid() const {
-	//TODO - Implementation
-	return false;
+	return currentKeyNode && currentValueNode;
 }
 
+// Move to the next key-value pair
 void MultiMapIterator::next() {
-	//TODO - Implementation
+	if (!valid()) throw exception();
+
+	currentValueNode = currentValueNode->next;
+	if (!currentValueNode) {
+		currentKeyNode = currentKeyNode->next;
+		currentValueNode = currentKeyNode ? currentKeyNode->valueHead : nullptr;
+	}
 }
 
+// Reset the iterator to the first element
 void MultiMapIterator::first() {
-	//TODO - Implementation
+	currentKeyNode = col.head;
+	currentValueNode = currentKeyNode ? currentKeyNode->valueHead : nullptr;
 }
-

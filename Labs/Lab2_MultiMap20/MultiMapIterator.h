@@ -3,22 +3,19 @@
 
 class MultiMap;
 
-class MultiMapIterator
-{
+class MultiMapIterator {
 	friend class MultiMap;
 
 private:
 	const MultiMap& col;
-
-	KeyNode* currentKey;
-	ValueNode* currentValue;
+	KeyNode* currentKeyNode;
+	ValueNode* currentValueNode;
 
 	MultiMapIterator(const MultiMap& c);
 
 public:
-	TElem getCurrent()const;
+	TElem getCurrent() const;
 	bool valid() const;
 	void next();
 	void first();
 };
-

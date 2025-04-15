@@ -1,7 +1,12 @@
 # ninja log v6
-59	391	7653747597405240	CMakeFiles/Lab2_MultiMap20.dir/MultiMapIterator.cpp.obj	8d2d8bc735a80fb3
-52	756	7653747597332829	CMakeFiles/Lab2_MultiMap20.dir/MultiMap.cpp.obj	3a2c37bdc3900c62
-34	759	7653747597153435	CMakeFiles/Lab2_MultiMap20.dir/App.cpp.obj	5b50542fb56eef1d
-66	793	7653747597476466	CMakeFiles/Lab2_MultiMap20.dir/ShortTest.cpp.obj	3a23306b7b111346
-44	948	7653747597261482	CMakeFiles/Lab2_MultiMap20.dir/ExtendedTest.cpp.obj	cc5463d234676e1f
+58	594	7663632640018773	CMakeFiles/Lab2_MultiMap20.dir/MultiMapIterator.cpp.obj	8d2d8bc735a80fb3
+49	1138	7663632639928754	CMakeFiles/Lab2_MultiMap20.dir/MultiMap.cpp.obj	3a2c37bdc3900c62
+32	952	7663632639751292	CMakeFiles/Lab2_MultiMap20.dir/App.cpp.obj	5b50542fb56eef1d
 948	1243	7653747606297365	Lab2_MultiMap20.exe	31d6aae3fdf15484
+67	1053	7663632640098780	CMakeFiles/Lab2_MultiMap20.dir/ShortTest.cpp.obj	3a23306b7b111346
+42	1258	7663632639853506	CMakeFiles/Lab2_MultiMap20.dir/ExtendedTest.cpp.obj	cc5463d234676e1f
+8	915	7663633320313826	build.ninja	2ddabb10faaa2b59
+24	416	7663635007183179	CMakeFiles/Lab2_MultiMap20.dir/MultiMapIterator.cpp.obj	8d2d8bc735a80fb3
+7	704	7663635007011043	CMakeFiles/Lab2_MultiMap20.dir/App.cpp.obj	5b50542fb56eef1d
+16	821	7663635007099752	CMakeFiles/Lab2_MultiMap20.dir/MultiMap.cpp.obj	3a2c37bdc3900c62
+36	709	7663635313671003	CMakeFiles/Lab2_MultiMap20.dir/ShortTest.cpp.obj	3a23306b7b111346

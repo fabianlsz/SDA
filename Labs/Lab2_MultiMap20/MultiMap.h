@@ -1,10 +1,6 @@
 #pragma once
-#pragma once
 #include <vector>
 #include <utility>
-// DO NOT INCLUDE MultiMapIterator
-
-using namespace std;
 
 // DO NOT CHANGE THIS PART
 typedef int TKey;
@@ -12,61 +8,60 @@ typedef int TValue;
 typedef std::pair<TKey, TValue> TElem;
 #define NULL_TVALUE -111111
 #define NULL_TELEM pair<int, int>(-111111, -111111)
+
 class MultiMapIterator;
 
 struct ValueNode {
 	TValue value;
-	ValueNode* next = nullptr;
-	ValueNode* prev = nullptr;
-
-	ValueNode(TValue v) : value(v) {}
+	ValueNode* next;
+	ValueNode* prev;
 };
 
 struct KeyNode {
 	TKey key;
-	ValueNode* valuesHead = nullptr;
-	ValueNode* valuesTail = nullptr;
-	KeyNode* next = nullptr;
-	KeyNode* prev = nullptr;
-
-	KeyNode(TKey k) : key(k) {}
+	ValueNode* valueHead;
+	KeyNode* next;
+	KeyNode* prev;
 };
-class MultiMap
-{
+
+class MultiMap {
 	friend class MultiMapIterator;
 
 private:
-	KeyNode* head;
-	KeyNode* tail;
-	int totalElems;
-
+	KeyNode* head; // Head of the doubly linked list for keys
+	KeyNode* tail; // Tail of the doubly linked list for keys
+	int totalSize; // Total number of key-value pairs
 
 public:
-	//constructor
+	// Constructor
 	MultiMap();
 
-	//adds a key value pair to the multimap
+	// Adds a key-value pair to the multimap
 	void add(TKey c, TValue v);
 
-	//removes a key value pair from the multimap
-	//returns true if the pair was removed (if it was in the multimap) and false otherwise
+	// Removes a key-value pair from the multimap
+	// Returns true if the pair was removed (if it was in the multimap) and false otherwise
 	bool remove(TKey c, TValue v);
 
-	//returns the vector of values associated to a key. If the key is not in the MultiMap, the vector is empty
-	vector<TValue> search(TKey c) const;
+	// Returns the vector of values associated with a key
+	std::vector<TValue> search(TKey c) const;
 
-	//returns the number of pairs from the multimap
+	// Returns the number of pairs in the multimap
 	int size() const;
 
-	//checks whether the multimap is empty
+	// Checks whether the multimap is empty
 	bool isEmpty() const;
 
-	//returns an iterator for the multimap
+	// Returns an iterator for the multimap
 	MultiMapIterator iterator() const;
 
-	//descturctor
+	// Destructor
 	~MultiMap();
 
+private:
+	// Helper to find a KeyNode by key
+	KeyNode* findKeyNode(TKey key) const;
 
+	// Helper to delete a ValueNode list
+	void deleteValueList(ValueNode* valueHead);
 };
-
