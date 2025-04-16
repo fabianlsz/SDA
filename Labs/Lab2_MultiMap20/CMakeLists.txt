@@ -7,8 +7,8 @@ include_directories(.)
 
 add_executable(Lab2_MultiMap20
     App.cpp
-#    ExtendedTest.cpp
-#    ExtendedTest.h
+    ExtendedTest.cpp
+    ExtendedTest.h
     MultiMap.cpp
     MultiMap.h
     MultiMapIterator.cpp

@@ -56,6 +56,13 @@ build CMakeFiles/Lab2_MultiMap20.dir/App.cpp.obj: CXX_COMPILER__Lab2_MultiMap20_
   OBJECT_DIR = CMakeFiles\Lab2_MultiMap20.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab2_MultiMap20.dir
 
+build CMakeFiles/Lab2_MultiMap20.dir/ExtendedTest.cpp.obj: CXX_COMPILER__Lab2_MultiMap20_unscanned_Debug C$:/Users/360n0/Desktop/SEM2/SDA/Labs/Lab2_MultiMap20/ExtendedTest.cpp || cmake_object_order_depends_target_Lab2_MultiMap20
+  DEP_FILE = CMakeFiles\Lab2_MultiMap20.dir\ExtendedTest.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/360n0/Desktop/SEM2/SDA/Labs/Lab2_MultiMap20/.
+  OBJECT_DIR = CMakeFiles\Lab2_MultiMap20.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab2_MultiMap20.dir
+
 build CMakeFiles/Lab2_MultiMap20.dir/MultiMap.cpp.obj: CXX_COMPILER__Lab2_MultiMap20_unscanned_Debug C$:/Users/360n0/Desktop/SEM2/SDA/Labs/Lab2_MultiMap20/MultiMap.cpp || cmake_object_order_depends_target_Lab2_MultiMap20
   DEP_FILE = CMakeFiles\Lab2_MultiMap20.dir\MultiMap.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
@@ -85,7 +92,7 @@ build CMakeFiles/Lab2_MultiMap20.dir/ShortTest.cpp.obj: CXX_COMPILER__Lab2_Multi
 #############################################
 # Link the executable Lab2_MultiMap20.exe
 
-build Lab2_MultiMap20.exe: CXX_EXECUTABLE_LINKER__Lab2_MultiMap20_Debug CMakeFiles/Lab2_MultiMap20.dir/App.cpp.obj CMakeFiles/Lab2_MultiMap20.dir/MultiMap.cpp.obj CMakeFiles/Lab2_MultiMap20.dir/MultiMapIterator.cpp.obj CMakeFiles/Lab2_MultiMap20.dir/ShortTest.cpp.obj
+build Lab2_MultiMap20.exe: CXX_EXECUTABLE_LINKER__Lab2_MultiMap20_Debug CMakeFiles/Lab2_MultiMap20.dir/App.cpp.obj CMakeFiles/Lab2_MultiMap20.dir/ExtendedTest.cpp.obj CMakeFiles/Lab2_MultiMap20.dir/MultiMap.cpp.obj CMakeFiles/Lab2_MultiMap20.dir/MultiMapIterator.cpp.obj CMakeFiles/Lab2_MultiMap20.dir/ShortTest.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab2_MultiMap20.dir

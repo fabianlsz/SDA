@@ -55,13 +55,15 @@ public:
 	// Returns an iterator for the multimap
 	MultiMapIterator iterator() const;
 
+	std::vector<std::pair<int, int>> countValuesPerKey() const;
+
 	// Destructor
 	~MultiMap();
 
 private:
-	// Helper to find a KeyNode by key
+	// helper ca sa gasim keynode dupa key
 	KeyNode* findKeyNode(TKey key) const;
 
-	// Helper to delete a ValueNode list
+	// helper ca sa stergem o lista valueNode
 	void deleteValueList(ValueNode* valueHead);
 };

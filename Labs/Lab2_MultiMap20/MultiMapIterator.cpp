@@ -7,32 +7,32 @@ using namespace std;
 // Constructor
 // best = average = worst = teta 1
 MultiMapIterator::MultiMapIterator(const MultiMap& c): col(c) {
-    // Set the iterator to point to the first key node in the MultiMap
+    // set iterator to point to the first key node
     currentKeyNode = col.head;
 
-    // Check if the MultiMap is empty. If not, set currentValueNode to the head of the value list for the first key.
+    // verificam daca multimap e empty daca nu, setam currValNode la valoarea valueHead
     if (currentKeyNode != nullptr) {
         currentValueNode = currentKeyNode->valueHead;
     } else {
-        // If the MultiMap is empty, there are no values to iterate over
+        // daca multimap e empty nu exista valori pe care sa le itereze
         currentValueNode = nullptr;
     }
 }
 
-// Returns the current element
+// ret elem. curent
 // best = average = worst = teta 1
 TElem MultiMapIterator::getCurrent() const {
     if (!valid()) throw std::exception();
     return {currentKeyNode->key, currentValueNode->value};
 }
 
-// Checks if the iterator is valid
+// validam iteratorul
 // best = average = worst = teta 1
 bool MultiMapIterator::valid() const {
     return currentKeyNode != nullptr && currentValueNode != nullptr;
 }
 
-// Moves to the next element
+// trecem la urm elem
 // best = average = worst = teta 1
 void MultiMapIterator::next() {
     if (!valid()) throw std::exception();
@@ -45,7 +45,7 @@ void MultiMapIterator::next() {
     }
 }
 
-// Moves to the first element
+// trecem la primul elem
 // best = average = worst = teta 1
 void MultiMapIterator::first() {
     currentKeyNode = col.head;

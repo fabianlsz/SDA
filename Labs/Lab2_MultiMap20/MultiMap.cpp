@@ -14,14 +14,14 @@ MultiMap::MultiMap() {
     this->totalSize = 0;
 }
 
-// Adds a key-value pair to the multimap
+// adaugam o pereche de de key-values in multimap
 // best: teta 1 (key already exists and the value is added to an empty key value list)
 // avg: O(n+m) (traverseaza key list O(n) si adauga valoarea la fin. listei de valori O(m)
 // avg: O(n+m) (traverseaza key list O(n) si adauga valoarea la fin. listei de valori O(m)
 void MultiMap::add(TKey c, TValue v) {
     KeyNode* keyNode = findKeyNode(c);
     if (!keyNode) {
-        // Create a new KeyNode
+        // cream un nou keyNode
         KeyNode* newKeyNode = new KeyNode{c, nullptr, nullptr, nullptr};
         if (!head) {
             head = tail = newKeyNode;
@@ -30,10 +30,10 @@ void MultiMap::add(TKey c, TValue v) {
             newKeyNode->prev = tail;
             tail = newKeyNode;
         }
-        // Create a ValueNode for the new key
+        // cream un valueKey pentru keyNode
         newKeyNode->valueHead = new ValueNode{v, nullptr, nullptr};
     } else {
-        // Append a ValueNode to the existing key's list
+        // adaugam un valueNode la lista curenta a cheii
         ValueNode* current = keyNode->valueHead;
         while (current->next) current = current->next;
         current->next = new ValueNode{v, nullptr, current};
@@ -41,7 +41,7 @@ void MultiMap::add(TKey c, TValue v) {
     totalSize++;
 }
 
-// Removes a key-value pair from the multimap
+// stergem o pereche de key-values din multimap
 //best: teta 1
 // worst = avg O(n+m_) la fel ca si la add motivul
 bool MultiMap::remove(TKey c, TValue v) {
@@ -74,7 +74,7 @@ bool MultiMap::remove(TKey c, TValue v) {
     return true;
 }
 
-// Returns the vector of values associated with a key
+// ret vector of values asociat unui key
 // best: teta 1
 // avg = worst la fel motivul ca si mai sus
 std::vector<TValue> MultiMap::search(TKey c) const {
@@ -91,13 +91,13 @@ std::vector<TValue> MultiMap::search(TKey c) const {
     return result;
 }
 
-// Returns the number of pairs in the multimap
+// returneaza nr de perechi din multimap
 //best=avg=worst: teta 1
 int MultiMap::size() const {
     return totalSize;
 }
 
-// Checks whether the multimap is empty
+// verifica daca multimap e empty
 //best=avg=worst: teta 1
 bool MultiMap::isEmpty() const {
     return totalSize == 0;
@@ -116,7 +116,6 @@ MultiMap::~MultiMap() {
     head = tail = nullptr;
 }
 
-// Helper to find a KeyNode by key
 // bst teta 1 daca key e prima din lista
 //average teta n - traverseaza aprox. jumatate din lista pentru gasirea key-ului
 //worst teta n daca key e ultima din lista
@@ -129,7 +128,7 @@ KeyNode* MultiMap::findKeyNode(TKey key) const {
     return nullptr;
 }
 
-// Helper to delete a ValueNode list
+// helper care ne ajuta la functia de delete
 // best: teta 1
 // worst = avg teta(m), traverseaza si sterge toate nodurile din lista, m=nr valori
 void MultiMap::deleteValueList(ValueNode* valueHead) {
@@ -140,8 +139,40 @@ void MultiMap::deleteValueList(ValueNode* valueHead) {
     }
 }
 
-// Returns an iterator for the multimap
+// returneaza iteratorul pt multimap
 // b = avg = w: teta 1
 MultiMapIterator MultiMap::iterator() const {
     return MultiMapIterator(*this);
+}
+
+
+///functie care sa returnere numarul de valori pe care il are o cheie,
+///de exemplu daca ai cheia a=3 si b=2 returneaza a:3 si b:2
+
+//best teta n
+//worst teta n+m
+//avg = worst
+
+vector<pair<TKey, int>> MultiMap::countValuesPerKey() const {
+    vector<pair<TKey, int>> result;
+
+    KeyNode* currentKeyNode = head;
+
+    // parcurgem fiecare nod de cheie
+    while (currentKeyNode != nullptr) {
+        int valueCount = 0;
+
+        // parcurgem lista de val pt cheia curente
+        ValueNode* currentValueNode = currentKeyNode->valueHead;
+        while (currentValueNode != nullptr) {
+            valueCount++; // crestem contorul pt fiecare valoare gasita
+            currentValueNode = currentValueNode->next;
+        }
+
+        result.push_back(make_pair(currentKeyNode->key, valueCount));
+
+        currentKeyNode = currentKeyNode->next;
+    }
+
+    return result;
 }
