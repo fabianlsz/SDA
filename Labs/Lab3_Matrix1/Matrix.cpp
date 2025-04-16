@@ -10,14 +10,12 @@ Matrix::Matrix(int nrLines, int nrCols) {
 
 
 int Matrix::nrLines() const {
-	//TODO - Implementation
-	return 0;
+	return nrRow;
 }
 
 
 int Matrix::nrColumns() const {
-	//TODO - Implementation
-	return 0;
+	return nrCol;
 }
 
 
@@ -32,7 +30,8 @@ TElem Matrix::modify(int i, int j, TElem e) {
 }
 
 Matrix::~Matrix() {
-	//TODO - Implementation
+	delete next;
+	delete matrix;
 }
 
 

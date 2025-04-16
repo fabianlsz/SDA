@@ -4,10 +4,24 @@
 typedef int TElem;
 #define NULL_TELEM 0
 
+struct Tuple{
+	int row;
+	int column;
+	TElem value;
+
+};
+
 class Matrix {
 
 private:
-	//TODO - Representation
+	Tuple *matrix;
+	int capacity;
+	int *next;
+	int nrRow;
+	int nrCol;
+	int size;
+	int head;
+	int firstEmpty;
 public:
 	//constructor
 	Matrix(int nrLines, int nrCols);
