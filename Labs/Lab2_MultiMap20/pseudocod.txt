@@ -1,0 +1,21 @@
+vector<pair<TKey, int>> countValuesPerKey() const:
+    vector<pair<TKey, int>> result
+    KeyNode* currentKeyNode -> head
+    while currentKeyNode != nullptr:
+        int valueCount -> 0
+        ValueNode* currentValueNode -> currentKeyNode->valueHead
+        while currentValueNode != nullptr:
+            valueCount -> valueCount + 1
+            currentValueNode -> currentValueNode->next
+        result.push_back(make_pair(currentKeyNode->key, valueCount))
+        currentKeyNode -> currentKeyNode->next
+    return result
+
+
+    pre:Structura de date MultiMap este valida
+        Lista de chei si listele de valori asociate sunt bine formate si nu contin erori
+    post:Returneaza un vector care contine cate o pereche pt fiecare cheie din MultiMap.
+         Fiecare cheie din rezultat este unica, iar nr de val asociate este corect
+
+    Functia countValuesPerKey numara cate valori sunt asociate fiecarei chei dintr-un
+    MultiMap si returneaza un vector de perechi (cheie, numar_valori).
