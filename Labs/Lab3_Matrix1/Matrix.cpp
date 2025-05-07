@@ -33,8 +33,8 @@ int Matrix::nrColumns() const {
 }
 
 ///bc: theta 1
-///wc: theta size
-///avg: theta size
+///wc: theta n
+///avg: o n
 TElem Matrix::element(int i, int j) const {
 	if (i < 0 || j < 0 || i >= nrRow || j >= nrCol)
 		throw invalid_argument("");
@@ -48,8 +48,8 @@ TElem Matrix::element(int i, int j) const {
 }
 
 ///best: theta 1
-///worst: theta size
-///avg: theta size
+///worst: theta n
+///avg: o n
 TElem Matrix::modify(int i, int j, TElem e) {
 	if (i < 0 || j < 0 || i >= nrRow || j >= nrCol)
 		throw invalid_argument("");
