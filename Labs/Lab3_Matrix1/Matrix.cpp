@@ -3,6 +3,9 @@
 #include <stdexcept>
 using namespace std;
 
+///best case: theta 1
+///worst case: theta 1
+///avg case: theta 1
 
 Matrix::Matrix(int nrLines, int nrCols) {
 	   
@@ -19,17 +22,19 @@ Matrix::Matrix(int nrLines, int nrCols) {
 	firstEmpty = 0;
 }
 
-
+///bc=wc=avg: theta 1
 int Matrix::nrLines() const {
 	return nrRow;
 }
 
-
+///bc=wc=avg: theta 1
 int Matrix::nrColumns() const {
 	return nrCol;
 }
 
-
+///bc: theta 1
+///wc: theta size
+///avg: theta size
 TElem Matrix::element(int i, int j) const {
 	if (i < 0 || j < 0 || i >= nrRow || j >= nrCol)
 		throw invalid_argument("");
@@ -42,6 +47,9 @@ TElem Matrix::element(int i, int j) const {
 	return NULL_TELEM;
 }
 
+///best: theta 1
+///worst: theta size
+///avg: theta size
 TElem Matrix::modify(int i, int j, TElem e) {
 	if (i < 0 || j < 0 || i >= nrRow || j >= nrCol)
 		throw invalid_argument("");
@@ -100,6 +108,7 @@ TElem Matrix::modify(int i, int j, TElem e) {
 	return NULL_TELEM;
 }
 
+///wc=bc=avg: theta 1
 Matrix::~Matrix() {
 	delete next;
 	delete matrix;
